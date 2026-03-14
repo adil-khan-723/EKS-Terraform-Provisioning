@@ -4,3 +4,10 @@ module "vpc" {
     eks-name = "oggy-eks"
     env = "staging"
 }
+
+module "eks" {
+    source = "./Cluster"
+    subnet_ids = module.vpc.private_subnet_ids
+    env = "staging"
+    eks-name = "oggy-eks"
+}
